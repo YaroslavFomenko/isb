@@ -1,7 +1,5 @@
 import argparse
-import sys
 
-from constant import ALPHABET, ALPHABET_SIZE
 from encryption import cipher, read_file, write_file
 
 
@@ -11,6 +9,7 @@ def parsing():
     parser.add_argument('output_file', type=str, help="Path to the output text file.")
     parser.add_argument('key_file', type=str, help="Path to the encryption key.")
     return parser
+
 
 def main():
     parser = parsing()

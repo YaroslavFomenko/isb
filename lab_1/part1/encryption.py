@@ -1,4 +1,5 @@
-from constant import ALPHABET , ALPHABET_SIZE
+from constant import ALPHABET, ALPHABET_SIZE
+
 
 def get_encryption_char(text_char: str, key_char: str) -> str:
     """
@@ -23,7 +24,7 @@ def get_encryption_char(text_char: str, key_char: str) -> str:
     return encrypted_char.upper() if text_char.isupper() else encrypted_char
 
 
-def cipher (text: str, key: str) -> str:
+def cipher(text: str, key: str) -> str:
     """
     Encrypts the text using the Trithemius cipher
     :param text:  original text
@@ -60,9 +61,10 @@ def read_file(file: str) -> str:
         with open(file, 'r', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
-            print(f"File not found: {file}")
+        print(f"File not found: {file}")
     except Exception as e:
         print(f"Error reading file '{file}': {e}")
+
 
 def write_file(file_path: str, content: str) -> None:
     """
