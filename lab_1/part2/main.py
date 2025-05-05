@@ -60,13 +60,14 @@ def substitute_chars(text: str, substitution_key: dict[str, str]) -> str:
     return ''.join(decrypted_text)
 
 
-def print_frequency_table(frequency_data: list[tuple[str, float]]) -> None:
+def print_frequency_table(frequency_data: list[tuple[str, float, float]]) -> None:
     """Выводит таблицу частотности символов"""
     print("\nЧастота символов в зашифрованном тексте:")
-    print("{:<10} {:<15}".format("Символ", "Процент (%)"))
+    print("{:<10} {:<15}".format("Символ", "Частота"))
     print("-" * 40)
     for char, count, percent in frequency_data[:20]:
-        print("{:<10} {:<15.2f}".format(repr(char), percent))
+        frequency = count / sum(item[1] for item in frequency_data)
+        print("{:<10} {:<15.3f}".format(repr(char), frequency))
 
 
 def main():
