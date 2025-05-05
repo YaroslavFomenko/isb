@@ -22,6 +22,8 @@ def save_json(filename: str, data: dict) -> None:
         json.dump(data, file, ensure_ascii=False, indent=4)
 
 
+from collections import Counter
+
 def calculate_char_frequency(text: str) -> list[tuple[str, int, float]]:
     """
     Подсчитывает частоту символов в тексте
@@ -36,12 +38,12 @@ def calculate_char_frequency(text: str) -> list[tuple[str, int, float]]:
     char_counter = Counter(lower_text)
     total_chars = len(lower_text)
 
-    freq_with_percent = [
-        (char, count, (count / total_chars) * 100)
+    freq_data = [
+        (char, count, count / total_chars)
         for char, count in char_counter.items()
     ]
 
-    return sorted(freq_with_percent, key=lambda x: x[1], reverse=True)
+    return sorted(freq_data, key=lambda x: x[1], reverse=True)
 
 
 def substitute_chars(text: str, substitution_key: dict[str, str]) -> str:
@@ -60,13 +62,14 @@ def substitute_chars(text: str, substitution_key: dict[str, str]) -> str:
     return ''.join(decrypted_text)
 
 
-def print_frequency_table(frequency_data: list[tuple[str, float, float]]) -> None:
+def print_frequency_table(frequency_data: list[tuple[str, int, float]]) -> None:
+
     """Выводит таблицу частотности символов"""
+
     print("\nЧастота символов в зашифрованном тексте:")
     print("{:<10} {:<15}".format("Символ", "Частота"))
     print("-" * 40)
-    for char, count, percent in frequency_data[:20]:
-        frequency = count / sum(item[1] for item in frequency_data)
+    for char, _, frequency in frequency_data[:20]:
         print("{:<10} {:<15.3f}".format(repr(char), frequency))
 
 
