@@ -43,6 +43,7 @@ def frequency_test(bits):
     return p_value
 
 
+
 def runs_test(bits):
     """
     Тест на одинаковые подряд идущие биты.
@@ -55,16 +56,15 @@ def runs_test(bits):
     if abs(pi - 0.5) >= 2 / math.sqrt(n):
         return 0.0
 
-    v_obs = 1
-    for i in range(1, n):
-        if bits[i] != bits[i - 1]:
+    v_obs = 0
+    for i in range(0, n-1):
+        if bits[i] != bits[i + 1]:
             v_obs += 1
 
     numerator = abs(v_obs - 2 * n * pi * (1 - pi))
     denominator = 2 * math.sqrt(2 * n) * pi * (1 - pi)
     p_value = erfc(numerator / denominator)
     return p_value
-
 
 def longest_run_ones_test(bits, block_size=8):
     """
