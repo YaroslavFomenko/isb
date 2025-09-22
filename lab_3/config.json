@@ -1,0 +1,9 @@
+{
+    "source_file": "input.txt",
+    "encrypted_file": "encrypted.bin",
+    "decrypted_file": "decrypted.txt",
+    "encrypted_key_file": "symmetric.bin",
+    "public_key_file": "public.pem",
+    "private_key_file": "private.pem",
+    "iv_file": "iv.bin"
+}
