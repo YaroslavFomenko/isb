@@ -1,4 +1,5 @@
 import argparse
+
 from generate_keys import KeyManager
 from file_processing import FileManager
 from asymmetrical import RSACrypto
@@ -10,6 +11,7 @@ class CryptoSystem:
 
     def __init__(self, config_path):
         self.config = FileManager.load_config(config_path)
+
 
     def generate_keys(self):
         """Генерирует все необходимые ключи"""
@@ -29,6 +31,7 @@ class CryptoSystem:
         FileManager.write_file(self.config['iv_file'], iv)
 
         print("Все ключи успешно созданы и сохранены!")
+
 
     def encrypt_file(self):
         """Шифрует файл"""
@@ -52,6 +55,7 @@ class CryptoSystem:
         FileManager.write_file(self.config['encrypted_file'], ciphertext)
 
         print("Файл успешно зашифрован!")
+
 
     def decrypt_file(self):
         """Расшифровывает файл"""

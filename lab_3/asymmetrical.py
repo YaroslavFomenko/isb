@@ -34,6 +34,7 @@ class RSACrypto:
             print(f"Ошибка RSA шифрования: {e}")
             raise
 
+
     @staticmethod
     def rsa_decrypt(private_key: Any, encrypted_data: bytes) -> bytes:
         """

@@ -1,4 +1,5 @@
 import json
+
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.serialization import load_pem_public_key, load_pem_private_key
 
@@ -19,6 +20,7 @@ class FileManager:
             print(f"Ошибка чтения файла: {e}")
             raise
 
+
     @staticmethod
     def write_file(filename, data):
         """Записывает данные в файл"""
@@ -30,6 +32,7 @@ class FileManager:
             print(f"Ошибка записи файла: {e}")
             raise
 
+
     @staticmethod
     def load_config(config_path):
         """Загружает конфигурацию"""
@@ -39,6 +42,7 @@ class FileManager:
         except Exception as e:
             print(f"Ошибка загрузки конфигурации: {e}")
             raise
+
 
     @staticmethod
     def save_public_key(key, filename):
@@ -52,6 +56,7 @@ class FileManager:
         except Exception as e:
             print(f"Ошибка сохранения публичного ключа: {e}")
             raise
+
 
     @staticmethod
     def save_private_key(key, filename):
@@ -67,6 +72,7 @@ class FileManager:
             print(f"Ошибка сохранения приватного ключа: {e}")
             raise
 
+
     @staticmethod
     def load_public_key(filename):
         """Загружает публичный ключ"""
@@ -76,6 +82,7 @@ class FileManager:
         except Exception as e:
             print(f"Ошибка загрузки публичного ключа: {e}")
             raise
+
 
     @staticmethod
     def load_private_key(filename):

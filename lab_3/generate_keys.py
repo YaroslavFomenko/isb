@@ -20,6 +20,7 @@ class KeyManager:
         print(f"RSA-{key_size} ключи созданы")
         return public_key, private_key
 
+
     @staticmethod
     def generate_aes_key():
         """Создает AES ключ и IV"""
@@ -30,6 +31,7 @@ class KeyManager:
 
         print("AES ключ и IV созданы")
         return aes_key, iv
+
 
     @staticmethod
     def protect_aes_key(public_key, aes_key):

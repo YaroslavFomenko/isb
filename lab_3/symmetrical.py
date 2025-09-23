@@ -1,4 +1,5 @@
 import os
+
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import padding
@@ -12,12 +13,14 @@ class AESCrypto:
         """Создает случайный вектор инициализации"""
         return os.urandom(16)
 
+
     @staticmethod
     def create_aes_key(key_size=32):
         """Генерирует AES ключ нужного размера"""
         if key_size not in [16, 24, 32]:
             raise ValueError("Допустимые размеры ключа: 16, 24, 32 байта")
         return os.urandom(key_size)
+
 
     @staticmethod
     def encrypt_data(data: bytes, key: bytes, iv: bytes = None) -> tuple:
@@ -50,6 +53,7 @@ class AESCrypto:
         except Exception as e:
             print(f"Ошибка AES шифрования: {e}")
             raise
+
 
     @staticmethod
     def decrypt_data(ciphertext: bytes, key: bytes, iv: bytes) -> bytes:
