@@ -9,8 +9,11 @@ class RSACrypto:
     @staticmethod
     def rsa_encrypt(public_key: Any, data: bytes) -> bytes:
         """
-        Шифрует данные RSA публичным ключом
-        Использует OAEP padding для надежности
+        Шифрует данные RSA публичным ключом.
+        Использует OAEP padding с SHA256 для надежности.
+        :param public_key: публичный ключ
+        :param data: данные для шифрования
+        :return: зашифрованные данные
         """
         try:
             print("Начинаем RSA шифрование...")
@@ -38,8 +41,12 @@ class RSACrypto:
     @staticmethod
     def rsa_decrypt(private_key: Any, encrypted_data: bytes) -> bytes:
         """
-        Расшифровывает данные RSA приватным ключом
+         Расшифровывает данные RSA приватным ключом
+        :param private_key: приватный ключ
+        :param encrypted_data: зашифрованные данные
+        :return: расшифрованные данные
         """
+
         try:
             print("Начинаем RSA дешифрование...")
 

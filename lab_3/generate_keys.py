@@ -8,7 +8,11 @@ class KeyManager:
 
     @staticmethod
     def generate_key_pair(key_size=2048):
-        """Создает пару RSA ключей"""
+        """
+        Создает пару RSA ключей
+        :param key_size: размер ключа
+        :return: пара ключей
+        """
         print("Генерируем RSA ключи...")
 
         private_key = rsa.generate_private_key(
@@ -35,7 +39,12 @@ class KeyManager:
 
     @staticmethod
     def protect_aes_key(public_key, aes_key):
-        """Защищает AES ключ RSA шифрованием"""
+        """
+        Защищает AES ключ RSA шифрованием
+        :param public_key: публичный ключ
+        :param aes_key: ключ для защиты
+        :return: зашифрованный ключ
+        """
 
         encrypted_key = RSACrypto.rsa_encrypt(public_key, aes_key)
         print("AES ключ защищен")

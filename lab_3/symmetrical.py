@@ -16,7 +16,11 @@ class AESCrypto:
 
     @staticmethod
     def create_aes_key(key_size=32):
-        """Генерирует AES ключ нужного размера"""
+        """
+        Генерирует AES ключ нужного размера
+        :param key_size: размер ключа
+        :return: ключ
+        """
         if key_size not in [16, 24, 32]:
             raise ValueError("Допустимые размеры ключа: 16, 24, 32 байта")
         return os.urandom(key_size)
@@ -26,7 +30,10 @@ class AESCrypto:
     def encrypt_data(data: bytes, key: bytes, iv: bytes = None) -> tuple:
         """
         Шифрует данные AES-256 в режиме CBC
-        Возвращает (шифротекст, iv)
+        :param data: данные для шифрования
+        :param key: ключ для щифрования
+        :param iv: вектор инициализации
+        :return: зашифрованные данные
         """
         try:
             if iv is None:
@@ -59,6 +66,10 @@ class AESCrypto:
     def decrypt_data(ciphertext: bytes, key: bytes, iv: bytes) -> bytes:
         """
         Расшифровывает данные AES
+        :param ciphertext: зашифрованные данные
+        :param key: ключ для расшифровки
+        :param iv: вектор инициализации
+        :return: расшифрованные данные
         """
         try:
             cipher = Cipher(

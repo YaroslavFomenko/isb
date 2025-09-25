@@ -9,7 +9,11 @@ class FileManager:
 
     @staticmethod
     def read_file(filename):
-        """Читает файл"""
+        """
+         читает файл
+        :param filename: путь к файлу
+        :return: содержимое файла
+        """
         try:
             with open(filename, 'rb') as f:
                 return f.read()
@@ -23,7 +27,11 @@ class FileManager:
 
     @staticmethod
     def write_file(filename, data):
-        """Записывает данные в файл"""
+        """
+        записывает данные в файл
+        :param filename: путь к файлу
+        :param data: данные для записи
+        """
         try:
             with open(filename, 'wb') as f:
                 f.write(data)
@@ -35,7 +43,11 @@ class FileManager:
 
     @staticmethod
     def load_config(config_path):
-        """Загружает конфигурацию"""
+        """
+        загружает конфигурацию
+        :param config_path: путь к конфигурации
+        :return: загруженная конфигурация
+        """
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
@@ -46,7 +58,11 @@ class FileManager:
 
     @staticmethod
     def save_public_key(key, filename):
-        """Сохраняет публичный ключ"""
+        """
+        сохраняет публичный ключ
+        :param key: публичный ключ
+        :param filename: путь к файлу
+        """
         try:
             pem_data = key.public_bytes(
                 encoding=serialization.Encoding.PEM,
@@ -60,7 +76,11 @@ class FileManager:
 
     @staticmethod
     def save_private_key(key, filename):
-        """Сохраняет приватный ключ"""
+        """
+        сохраняет приватный ключ
+        :param key: приватный ключ
+        :param filename: путь к файлу
+        """
         try:
             pem_data = key.private_bytes(
                 encoding=serialization.Encoding.PEM,
@@ -75,7 +95,11 @@ class FileManager:
 
     @staticmethod
     def load_public_key(filename):
-        """Загружает публичный ключ"""
+        """
+        Загружает публичный ключ
+        :param filename: путь к файлу
+        :return: публичный ключ
+        """
         try:
             key_data = FileManager.read_file(filename)
             return load_pem_public_key(key_data)
@@ -86,7 +110,11 @@ class FileManager:
 
     @staticmethod
     def load_private_key(filename):
-        """Загружает приватный ключ"""
+        """
+        Загружает приватный ключ
+        :param filename: путь к файлу
+        :return: приватный ключ
+        """
         try:
             key_data = FileManager.read_file(filename)
             return load_pem_private_key(key_data, password=None)
